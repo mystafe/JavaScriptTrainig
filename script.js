@@ -1,23 +1,61 @@
+const colorizeBtn = document.getElementById("colorizeBtn");
+
+let discoModeOn = false;
+
+const discoMode = function () {
+  if (!discoModeOn) {
+    for (let i = 0; i < 10; i++) {
+      let a, b, c;
+
+      const triggerDisco = function () {
+        a = Math.random() * 256;
+        b = Math.random() * 256;
+        c = Math.random() * 256;
+        document.body.style.backgroundColor = `rgb(${a},${b},${c})`;
+        console.log("a", a);
+      };
+
+      setTimeout(triggerDisco, 600 * i);
+    }
+    discoModeOn = true;
+    document.getElementById("discoBtn").innerHTML = "Disco Mode Off 🎉";
+  } else {
+    document.body.style.backgroundColor = "white";
+    discoModeOn = false;
+    document.getElementById("discoBtn").innerHTML = "Disco Mode On 🪩";
+  }
+};
+
+colorizeBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  const a = Math.random() * 256;
+  const b = Math.random() * 256;
+  const c = Math.random() * 256;
+  document.body.style.backgroundColor = `rgb(${a},${b},${c})`;
+  discoModeOn = false;
+  document.getElementById("discoBtn").innerHTML = "Disco Mode On 🪩";
+});
+
 let customerData;
 fetch("https://northwind.vercel.app/api/customers")
   .then((response) => response.json())
   .then((data) => {
     customerData = data;
-    // console.log("Customer", customerData);
-    // console.log("Kaç A var?", findA());
-    // console.log("ID si CENTC olan customer", findCustomerCENTC());
-    // console.log("City London olan kaç customer var?", findLondonCustomers());
-    // console.log("Country France olan customer lar", findFranceCustomers());
-    // console.log("UpperCase company'ler", upperCaseCompanyNames());
+    console.log("Customer", customerData);
+    console.log("Kaç A var?", findA());
+    console.log("ID si CENTC olan customer", findCustomerCENTC());
+    console.log("City London olan kaç customer var?", findLondonCustomers());
+    console.log("Country France olan customer lar", findFranceCustomers());
+    console.log("UpperCase company'ler", upperCaseCompanyNames());
   })
   .catch((error) => {
     console.error("Error:", error);
   });
 
 const fetchCustomerData = function () {
-  let tableContent = "";
   customerData.forEach((customer) => {
-    tableContent += `<tr>
+    let tableRow = document.createElement("tr");
+    tableRow.innerHTML = `
       <td>${customer.companyName}</td>
       <td>${customer.contactName}</td>
       <td>${customer.contactTitle}</td>  
@@ -26,10 +64,9 @@ const fetchCustomerData = function () {
       <td>${customer.address.region}</td>
       <td>${customer.address.postalCode}</td>
       <td>${customer.address.country}</td>
-      <td>${customer.address.phone}</td>    
-    </tr>`;
+      <td>${customer.address.phone}</td>`;
+    document.getElementById("Content").appendChild(tableRow);
   });
-  document.getElementById("Content").innerHTML = tableContent;
 };
 
 //Kaç a var?
@@ -133,11 +170,9 @@ fetch(orderUrl)
 
 //Late orders
 const lateShippedOrders = () => {
-  return orderdata
-    .filter(
-      (o) =>
-         new Date(o.requiredDate) < new Date(o.shippedDate)
-    )
+  return orderdata.filter(
+    (o) => new Date(o.requiredDate) < new Date(o.shippedDate)
+  );
 };
 //Orders in 1996
 const orderInSpecificYear = (year) => {

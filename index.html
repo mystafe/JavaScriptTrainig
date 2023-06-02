@@ -11,14 +11,14 @@
 
         <h1>Data Getirmece</h1>
 
+        <button id="colorizeBtn" class="button">Renklendir 🎨</button>
+        <button id="discoBtn" class="button" onclick="discoMode()">Disco Mode On 🪩</button>
         <button id="showDataBtn" onclick="fetchCustomerData()" class="button">Müşteri Verilerini Getir</button>
-        <button id="showDataBtn" onclick="fetchProductData()" class="button">Ürün Verilerini Getir</button>
-        <button id="showDataBtn" onclick="fetchOrderData()" class="button">Sipariş Verilerini Getir</button>
         <button id="deleteDataBtn" onclick="deleteData()" class="button">Verileri Sil</button>
 
 
         <table id="customertable">
-          <tr>
+          <thead>
             <th>company name</th>
             <th>Name</th>
             <th>Title</th>
@@ -29,30 +29,12 @@
             <th>country</th>
             <th>phone</th>
        
-          </tr>
+          </thead>
           <tbody id="Content">
      
           </tbody>
         </table>
 
-        <table id="customertable">
-          <tr>
-            <th>company name</th>
-            <th>Name</th>
-            <th>Title</th>
-            <th>street</th>
-            <th>City</th>
-            <th>region</th>
-            <th>postal code</th>
-            <th>country</th>
-            <th>phone</th>
-       
-          </tr>
-          <tbody id="Content">
-     
-          </tbody>
-        </table>
-        
         
         <script src="script.js"></script>
       </body>

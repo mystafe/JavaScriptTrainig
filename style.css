@@ -36,6 +36,164 @@ th {
   background-color: #3e8e41;
 }
 
+#colorizedBtn {
+  margin-bottom: 10px;
+  background-color: #ca8939;
+}
 #showDataBtn {
   margin-bottom: 10px;
+}
+#deleteDataBtn {
+  margin-bottom: 10px;
+}
+
+#discoBtn {
+  position: relative;
+  padding: 0;
+  font-family: "Permanent Marker", cursive;
+  border: none;
+  padding: 6px 4px;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  max-width: 220px;
+  min-width: 100px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+#discoBtn:hover {
+  letter-spacing: 3px;
+}
+#discoBtn:active {
+  transform: scale(1.2);
+}
+
+#discoBtn:before,
+#discoBtn:after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background: linear-gradient(
+    45deg,
+    #cc00ff,
+    #6e0dd0,
+    #9900ff,
+    #ff6600,
+    #00ff00,
+    #ffff00,
+    #ff0000,
+    #ffff00,
+    #ffff33,
+    #ffff00,
+    #ff00ff,
+    #ff00cc,
+    #ff0000,
+    #00ff66,
+    #33ff00,
+    #00ffff,
+    #099fff,
+    #0062ff,
+    #ff0000,
+    #f2ea02,
+    #e6fb04,
+    #0033ff,
+    #ff0099,
+    #00ff33,
+    #0000ff,
+    #00ff00,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #fb0094,
+    #fd1c03,
+    #ff3300,
+    #cc00ff,
+    #9d00ff,
+    #cc00ff,
+    #6e0dd0,
+    #9900ff
+  );
+  background-size: 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: -1;
+  animation: linear-shadow 25s linear infinite;
+}
+
+#discoBtn:before {
+  filter: blur(20px);
+}
+
+@keyframes linear-shadow {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+#showDataBtn {
+  transition-duration: 0.4s;
+  background-color: white;
+  color: #4caf50;
+  border: 2px solid #4caf50;
+}
+#deleteDataBtn {
+  transition-duration: 0.4s;
+  background-color: white;
+  color: #af4c4c;
+  border: 2px solid #af4c4c;
+}
+
+#showDataBtn:hover {
+  background-color: #4caf50;
+  color: white;
+}
+#deleteDataBtn:hover {
+  background-color: #af4c4c;
+  color: white;
+}
+
+#colorizeBtn {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation: disco 5s infinite;
+}
+
+#colorizeBtn:hover {
+  animation-play-state: paused;
+}
+
+@keyframes disco {
+  0% {
+    background-color: #4caf50;
+  }
+  25% {
+    background-color: #ff0066;
+  }
+  50% {
+    background-color: #00ccff;
+  }
+  75% {
+    background-color: #c8a726;
+  }
+  100% {
+    background-color: #4caf50;
+  }
 }
